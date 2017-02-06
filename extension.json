@@ -1,0 +1,48 @@
+{
+  "name": "Tabs",
+  "author": [
+    "Joeytje50",
+    "Dolfinus"
+  ],
+  "url": "https://www.mediawiki.org/wiki/Extension:Tabs",
+  "descriptionmsg": "tabs-desc",
+  "version": "1.4",
+  "license-name": "GPL-2.0+",
+  "type": "parserhook",
+  "ResourceModules": {
+    "ext.tabs": {
+      "position" : "top",
+    	"targets" : [
+    		"desktop",
+    		"mobile"
+    	],
+      "scripts": [
+        "ext.tabs.js"
+      ],
+      "styles": [
+        "ext.tabs.css"
+      ]
+    }
+  },
+  "MessagesDirs": {
+		"Tabs": [
+			"i18n"
+		]
+	},
+  "ExtensionMessagesFiles": {
+    "Tabs": "Tabs_magic.i18n.php"
+  },
+  "ResourceFileModulePaths": {
+    "localBasePath": "modules",
+    "remoteExtPath": "Tabs/modules"
+  },
+  "AutoloadClasses": {
+    "Tabs": "Tabs_body.php"
+  },
+  "Hooks": {
+  	"ParserFirstCallInit": [
+	    "Tabs::init"
+	   ]
+  },
+  "manifest_version": 1
+}
