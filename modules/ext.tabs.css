@@ -30,18 +30,19 @@
   padding: 0.5rem 0.75rem;
   border-radius: var(--border-radius--medium);
   color: var(--color-base, light-dark(#515151, #aaaaaa));
+  background-color: var(--background-color-interactive);
   transition: background 100ms ease,color 100ms ease;
 }
 
 
 .tabs-label:hover {
-  background-color: var(--background-color-quiet--hover, #ddd);
+  background-color: var(--background-color-interactive--hover, var(--background-color-quiet--hover, #ddd));
   color: var(--color-base--emphasized, light-dark(#000, #fff));
   cursor: pointer;
 }
 
 .tabs-tabbox > .tabs-input:checked + .tabs-label, .tabs-input-0:checked + .tabs-input-1 + .tabs-label {
-  background-color: var(--color-primary, light-dark(#ddd, #fff));
+  background-color: var(--background-color-interactive--active, var(--color-primary, light-dark(#ddd, #fff)));
   color: var(--color-base, light-dark(#313131, #eee));
 }
 
