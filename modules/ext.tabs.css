@@ -1,7 +1,7 @@
 .tabs {
   padding: 0px;
   margin: 0 auto;
-  display: table-header-group;
+  display: inline
 }
 
 .tabs-input {
@@ -11,38 +11,56 @@
 .tabs-container {
   margin-bottom: 10px;
   overflow-x: auto;
+  /*
+  border: 1px solid #aaa;
   border-radius: 0px 0px 0px 0px;
+  */
   margin-top: -1px;
   padding: 2px 10px;
   position: relative;
-  border: 1px solid #aaa;
   width: inherit;
-  max-width: inherit;
   min-width: inherit;
+  /*
   background-color: #fff;
+  */
 }
 
 
 .tabs-label {
+  /*
   background-color: #f3f3f3;
+  */
   margin: 0px 4px 0px 0px;
+  /*
   border: 1px solid #aaa;
   border-bottom: none;
   border-radius: 0px 0px 0px 0px;
+  */
   position: relative;
   display: inline-block;
   vertical-align: bottom;
-  padding: 1px 6px;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius--medium);
+  color: var(--color-base);
+  transition: background 100ms ease,color 100ms ease;
 }
 
 
 .tabs-label:hover {
+  /*
   background-color: #ddd;
+  */
+  background-color: var(--background-color-quiet--hover);
+  color: var(--color-base--emphasized);
   cursor: pointer;
 }
 
 .tabs-tabbox > .tabs-input:checked + .tabs-label, .tabs-input-0:checked + .tabs-input-1 + .tabs-label {
+  background-color: var(--color-primary);
+  color: #fff;
+  /*
     background-color: #fff;
+    */
 }
 
 .tabs-content {
@@ -53,4 +71,3 @@
 .tabs-input-0:checked ~ .tabs-content {
   display:block;
 }
-
