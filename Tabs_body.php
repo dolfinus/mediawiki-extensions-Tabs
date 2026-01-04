@@ -55,7 +55,7 @@ class Tabs {
 	 * @param Parser $parser
 	 * @return string
 	 */
-	public function renderTab($input, $attr = array(), $parser) {
+	public function renderTab($input, $attr, $parser) {
 		$form = $parser->tabsData['tabCount'] === 0 ? $this->insertCSSJS($parser) : ''; // init styles, set the return <form> tag as $form.
 		++$parser->tabsData['tabCount'];
 		$names = &$parser->tabsData['tabNames'];
