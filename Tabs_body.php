@@ -329,9 +329,6 @@ class Tabs {
 		$parserOut->addHeadItem($this->createDynamicCss($parser), 'TabsStyles');
 		if (!$parser->tabsData['addedStatics']) {
 			$parser->tabsData['addedStatics'] = true;
-			$parserOut->addModuleStyles('ext.tabs');
-			$parserOut->addModuleScripts('ext.tabs');
-			global $wgOut;
 			// this form is here to use for the form="" attribute in the inputs, for semantically correct usage of the <input> tag outside a <form> tag.
 			return '<form id="tabs-inputform" class="tabs tabs-inputform" action="#"></form>';
 		}
@@ -352,4 +349,9 @@ class Tabs {
 				str_replace(':checked','.checked', $css);
 		return "<style type=\"text/css\" id=\"tabs-dynamic-styles\">/*<![CDATA[*/\n/* Dynamically generated tabs styles */\n$css\n/*]]>*/</style>";
 	}
+
+  public static function BeforePageDisplay(&$out){
+	$out->addModules( 'ext.tabs' );
+	return true;
+}
 }

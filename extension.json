@@ -11,11 +11,11 @@
   "type": "parserhook",
   "ResourceModules": {
     "ext.tabs": {
-      "position" : "top",
-    	"targets" : [
-    		"desktop",
-    		"mobile"
-    	],
+      "position": "top",
+      "targets": [
+        "desktop",
+        "mobile"
+      ],
       "scripts": [
         "ext.tabs.js"
       ],
@@ -25,10 +25,10 @@
     }
   },
   "MessagesDirs": {
-		"Tabs": [
-			"i18n"
-		]
-	},
+    "Tabs": [
+      "i18n"
+    ]
+  },
   "ExtensionMessagesFiles": {
     "Tabs": "Tabs_magic.i18n.php"
   },
@@ -40,9 +40,12 @@
     "Tabs": "Tabs_body.php"
   },
   "Hooks": {
-  	"ParserFirstCallInit": [
-	    "Tabs::init"
-	   ]
+    "ParserFirstCallInit": [
+      "Tabs::init"
+    ],
+    "BeforePageDisplay": [
+      "Tabs::BeforePageDisplay"
+    ]
   },
   "manifest_version": 1
 }
