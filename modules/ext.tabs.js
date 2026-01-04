@@ -1,4 +1,4 @@
-jQuery(function($) {
+( function ( $ ) {
 	/**
 	 * Imitates the normal feature in browsers to scroll to an id that has the same id as the url fragment/hash.
 	 * This makes it unnecessary to use actual ids on the tabs, which could cause the same id to occur twice in the same document.
@@ -6,7 +6,7 @@ jQuery(function($) {
 	 */
 	function moveToHash() {
 		var hash = location.hash.substr(1).replace(/_/g,' ').trim();
-		if (!hash || $(location.hash).length) {
+		if (!hash || hash.indexOf('/') !== -1 || $(location.hash).length) {
 			return; // if there's no hash defined, or an element on the page with the same hash already, stop looking for tabs
 		}
 		$('.tabs-tabbox .tabs-label:contains('+hash+')').each(function() {
@@ -23,6 +23,7 @@ jQuery(function($) {
 
 	// Credit for this testing method: 2astalavista @ http://stackoverflow.com/a/21095568/1256925
 	// The font will be sans-serif if the :not() property is supported. The margin will be 1px if the sibling selector is supported.
+	if($('#tabs-inputform').length > 0) {
 	if ($('#tabs-inputform').css('font-family').replace(/["']/g,'') === 'sans-serif' && $('#tabs-inputform').css('margin') === '1px') {
 		$(function() {
 			$('body').addClass('tabs-oldbrowserscript'); // Make the unselected tabs hide when the browser loads this script
@@ -49,6 +50,7 @@ jQuery(function($) {
 		$(moveToHash);
 	}
 	addEventListener('hashchange', moveToHash);
+	}
 
 	/*
 	 * System to fix toggle boxes in Android Browser
@@ -76,4 +78,4 @@ jQuery(function($) {
 			}
 		}).replaceWith(replaces); //Run this *after* the .tabs-container has finished, otherwise all .tabs-label elements will be skipped.
 	}
-});
+}( jQuery ) );
